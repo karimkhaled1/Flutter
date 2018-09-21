@@ -36,6 +36,6 @@ class favoriate extends StatelessWidget {
   _getData() async {
     var db = new DatabaseHelper();
     news = await db.getAllNews();
-    ;
+    print(news);
   }
 }

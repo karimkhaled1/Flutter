@@ -8,7 +8,7 @@ import 'package:eleteme/models/NewsModel.dart';
 class DatabaseHelper {
   final String _newsTable = "newsTable";
   final String _title = "title";
-  final String _des = "des";
+  final String _des = "description";
   final String _url = "url";
   final String _urlToImage = "urlToImage";
   final String _author = "author";
@@ -54,10 +54,11 @@ class DatabaseHelper {
   Future<List> getAllNews() async {
     var dbClinet = await db;
     var res = await dbClinet.rawQuery("SELECT * from $_newsTable");
+    print(res);
   List<News> news = new List();
     res.forEach((result) {
-      News Article = News.fromMap(result);
-      news.add(Article);
+      News article = News.fromMap(result);
+      news.add(article);
     });
     return news;
   }
